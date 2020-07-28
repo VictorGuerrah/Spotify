@@ -1,0 +1,16 @@
+body {
+    background-image:linear-gradient(#fae62d, #f7b44f, #f25e8a);
+    height: 100vh;
+}
+
+.navbar {
+    height: 70px;
+}
+
+.footer {
+    background-color: black;
+    display: flex;
+    align-items: baseline;
+    margin-top: 40%;
+    height: 50px;
+}
