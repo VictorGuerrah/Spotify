@@ -6,11 +6,12 @@
 
 @section('content')
 
-    <?php if(!empty($data)){
-        // echo '<pre>';
-        // print_r($data);
-        // echo '</pre>';
-    ?>
+    @if ($data)
+
+        <pre>
+            {{ $data }}
+        </pre>
+
     <div class="container cards">
 
         @foreach ($data as $key => $value)
@@ -40,6 +41,9 @@
         @endforeach
 
     </div>
-    <?php } ?>
+
+    @else
+        <h3>Nenhum resultado encontrado!</h3>
+    @endif
     
 @endsection
