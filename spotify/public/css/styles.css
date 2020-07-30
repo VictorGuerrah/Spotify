@@ -1,6 +1,5 @@
 body {
     background-image:linear-gradient(#fae62d, #f7b44f, #f25e8a);
-    height: 100vh;
 }
 
 .navbar {
@@ -15,8 +14,28 @@ body {
     height: 50px;
 }
 
-.cards {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
+.a-card {
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 1px 5px 10px #888888;
+    height: 375px;
+    margin-bottom: 10px !important;
+}
+
+.artists {
+    margin: 50px 0 50px 0;
+    overflow-x: auto;
+}
+
+.row{
+    flex-wrap: nowrap;
+}
+
+.card-img-top {
+    height: 266px;
+    width: 266px;
+}
+
+.a-card-body {
+    margin-left: 50px;
 }
