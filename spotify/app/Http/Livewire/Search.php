@@ -10,6 +10,7 @@ class Search extends Component
     public $value;
     public $artists;
     public $tracks;
+    public $idA;
 
     public function render()
     {
@@ -19,10 +20,11 @@ class Search extends Component
 
     public function submit()
     {
+        $this->validate(['value' => 'required']);
+
         $api = new Larafy();
         $data['artists'] = $data['tracks'] = array();
         
-        $validation = $this->validate(['value' => 'required']);
 
         try { 
 
@@ -32,7 +34,6 @@ class Search extends Component
             $tracks = $api->searchTracks($this->value);
             $tracks = json_decode(json_encode($tracks), true);
 
-            // Formating artists
             if (!empty($artists['items'])){
                 foreach ($artists['items'] as $key => $value) {
     
@@ -42,17 +43,20 @@ class Search extends Component
                         'image' => isset($value['images'][0]['url']) ? $value['images'][0]['url']  : asset('img/no-image.png'),
                         'popularity' => isset($value['popularity']) ? $value['popularity'] : "",
                         'type' => isset($value['type']) ? $value['type'] : "",
+                        'id' => isset($value['id']) ? $value['id']: "",
                         'followers' =>isset($value['followers']['total']) ? $value['followers']['total']: ""
                     ];
+
+                    $this->idA[$key] = $value['id'];
                 }
             }
-            // Formating tracks
+
             if (!empty($tracks['items'])){
                 foreach ($tracks['items'] as $key => $value) {
     
                     $data['tracks'][] = [
                         'name' => isset($value['name']) ? $value['name'] : "",
-                        'album' => isset($value['album']['name']) ? $value['album']['name'] : "",
+                        'image' => isset($value['album']['images'][0]['url']) ? $value['album']['images'][0]['url'] : asset('img/no-image.png'),
                         'artist' => isset($value['artists'][0]['name']) ? $value['album']['artists'][0]['name']  : ""
                     ];
                 }
@@ -61,9 +65,16 @@ class Search extends Component
             $this->artists = $data['artists'];
             $this->tracks = $data['tracks'];
 
-            
         } catch(\Rennokki\Larafy\Exceptions\SpotifyAuthorizationException $e) {
             $e->getAPIResponse();
         }
+    }
+
+    public function albuns($id) {
+        return redirect()->to("/spotify/artist?id=$id");
+    }
+
+    public function like($info) {
+        
     }
 }

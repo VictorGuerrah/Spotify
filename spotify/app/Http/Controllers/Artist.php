@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-class BuscaController extends Controller
+class Artist extends Controller
 {
+
     public function index()
     {
-        return view('spotify/index');
+        return view('spotify/artist');
     }
+
 }

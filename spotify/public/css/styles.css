@@ -1,24 +1,17 @@
 body {
     background-image:linear-gradient(#fae62d, #f7b44f, #f25e8a);
+    min-height: 100vh;
 }
 
 .navbar {
     height: 70px;
 }
 
-.footer {
-    background-color: black;
-    display: flex;
-    align-items: baseline;
-    margin-top: 40%;
-    height: 50px;
-}
-
 .a-card {
     border: 1px solid;
     padding: 10px;
     box-shadow: 1px 5px 10px #888888;
-    height: 375px;
+    height: fit-content;
     margin-bottom: 10px !important;
 }
 
@@ -31,11 +24,72 @@ body {
     flex-wrap: nowrap;
 }
 
-.card-img-top {
+.a-card-img-top {
     height: 266px;
     width: 266px;
 }
 
-.a-card-body {
-    margin-left: 50px;
+.a-card-name {
+    margin: 0px 0px -10px 50px;
+}
+
+.t-card-body {
+    display: flex;
+    justify-content: center;
+}
+
+.track {
+       flex: 0 0 32%;
+       height: 250px;
+       width: 34px;
+}
+
+.tracks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.artist {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.load{
+    margin-left: 100px;
+}
+
+.offline{
+    display: flex;
+    width: 30%;
+    height: 30%;
+    margin: 6% 0 0 32%;
+}
+
+.liked{
+    color: red;
+}
+
+.scroll::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+.scroll::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+.scroll::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
 }

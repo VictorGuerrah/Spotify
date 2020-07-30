@@ -25,9 +25,6 @@
     @yield('content')
 
     @livewireScripts
-    
-    <span class="footer"></span>
-
 
 </body>
 </html>
