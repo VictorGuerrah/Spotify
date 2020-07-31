@@ -39,12 +39,8 @@ class Search extends Component
     
                     $data['artists'][] = [
                         'name' => isset($value['name']) ? $value['name'] : "",
-                        'genre' => isset($value['genres'][0]) ? $value['genres'][0]: "",
                         'image' => isset($value['images'][0]['url']) ? $value['images'][0]['url']  : asset('img/no-image.png'),
-                        'popularity' => isset($value['popularity']) ? $value['popularity'] : "",
-                        'type' => isset($value['type']) ? $value['type'] : "",
                         'id' => isset($value['id']) ? $value['id']: "",
-                        'followers' =>isset($value['followers']['total']) ? $value['followers']['total']: ""
                     ];
 
                     $this->idA[$key] = $value['id'];
@@ -72,9 +68,5 @@ class Search extends Component
 
     public function albuns($id) {
         return redirect()->to("/spotify/artist?id=$id");
-    }
-
-    public function like($info) {
-        
     }
 }

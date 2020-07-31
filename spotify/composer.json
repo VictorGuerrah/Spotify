@@ -45,6 +45,10 @@
             "database/factories"
         ]
     },
+    "post-install-cmd": [
+       "php artisan clear-compiled",
+       "chmod -R 777 public/"
+    ],
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"

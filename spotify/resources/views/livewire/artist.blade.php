@@ -6,7 +6,7 @@
     ?>
 
     <nav  class="navbar navbar-dark" style="background-color: #000000;">
-        <a class="navbar-brand" wire:click="home">
+        <a class="navbar-brand pointer" wire:click="home">
             <img src="{{asset('img/logo.png')}}" width="35" height="35" class="d-inline-block align-top" loading="lazy">
             Spotify
         </a>
